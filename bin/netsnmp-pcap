@@ -273,6 +273,10 @@ __END__
 netsnmp-pcap - SNMP extension which captures network traffic and reports
 the number of packets captured, and the throughput
 
+=for ExtUtils::MakeMaker
+netsnmp::pcap::perl - SNMP extension which captures network traffic
+and reports the number of packets captured, and the throughput
+
 =head1 SYNOPSIS
 
     netsnmp-pcap [--config /etc/snmp/pcap.conf] [--debug [n]]
