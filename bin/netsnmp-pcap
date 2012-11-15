@@ -336,17 +336,72 @@ Print the program name and version, then exit.
 
 This program is a port of B<bsnmpd-pcap>, the pcap plugin for FreeBSD's
 bsnmpd, as an AgentX for Net-SNMP, written in Perl. It allows you to
-measure arbitrary network traffic.
+measure arbitrary network traffic, in packets or octets, using the pcap(3)
+library. Multiple flows of traffic can be measured by setting as many
+network monitors, with different filters.
 
 
 =head1 MIBS
 
-...
+The counters are available as a table under the same OID as bsnmpd-pcap,
+but this can be changed using the C<--base-oid> option:
+
+    .1.3.6.1.4.1.12325.1.1112
+
+The following entries are provided, where I<N> is the index:
+
+=over
+
+=item pcapCount(1)
+
+the number of network monitors present
+
+=item pcapTable(1).pcapEntry(1).pcapIndex(0).I<N>
+
+the index of the network monitor
+
+=item pcapTable(1).pcapEntry(1).pcapDescr(1).I<N>
+
+a human description of the netowrk monitor (may be empty)
+
+=item pcapTable(1).pcapEntry(1).pcapDevice(2).I<N>
+
+the network device that traffic is being monitored on
+
+=item pcapTable(1).pcapEntry(1).pcapFilter(3).I<N>
+
+the pcap(3) filter used to select certain network packets for monitoring
+
+=item pcapTable(1).pcapEntry(1).pcapOctets(4).I<N>
+
+the number of octets seen by the monitor
+
+=item pcapTable(1).pcapEntry(1).pcapPackets(5).I<N>
+
+the number of packets seen by the monitor
+
+=back
 
 
 =head1 CONFIGURATION
 
-...
+The configuration format is the same as bsnmpd-pcap, where you define
+the network monitors by setting the corresponding SNMP functions.
+Here is an example which defines three network monitors:
+
+    %pcap
+    pcapDescr.1  = "ARP, ICMP and VRRP traffic"
+    pcapDevice.1 = "eth0"
+    pcapFilter.1 = "arp or icmp or vrrp"
+
+    pcapDescr.2  = "DNS traffic"
+    pcapDevice.2 = "eth0"
+    pcapFilter.2 = "port domain"
+
+    pcapDescr.3  = "HTTP traffic"
+    pcapDevice.3 = "eth0"
+    pcapFilter.3 = "port http or port https"
+
 
 
 =head1 SEE ALSO
