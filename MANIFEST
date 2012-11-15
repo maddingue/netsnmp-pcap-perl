@@ -1,4 +1,6 @@
 MANIFEST
 Makefile.PL
+README
+README.pod
 bin/netsnmp-pcap
 etc/pcap.conf
