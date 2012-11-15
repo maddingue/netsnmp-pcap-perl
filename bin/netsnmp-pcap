@@ -6,7 +6,7 @@ use Proc::Daemon;
 use Sys::Syslog;
 
 
-$::PROGRAM = "snmp-pcap";
+$::PROGRAM = "netsnmp-pcap";
 $::VERSION = "0.90";
 
 
