@@ -1,5 +1,7 @@
 Release history for netsnmp-pcap
 
+  - Skip short packets.
+
 1.00 / 2012.11.15 / SAPER
   - Initial version.
 

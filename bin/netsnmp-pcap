@@ -152,6 +152,7 @@ sub run {
         $handlers{"update_counters_for_$name"} = sub {
             my ($heap, $args) = @_[ HEAP, ARG0 ];
             my $pkt_header = $args->[0][0];
+            return if $pkt_header->{len} < ETHERNET_HEADER_LENGTH;
             $heap->{monitors}[$id]{pcapPackets}++;
             $heap->{monitors}[$id]{pcapOctets}
                 += $pkt_header->{len} - ETHERNET_HEADER_LENGTH;
