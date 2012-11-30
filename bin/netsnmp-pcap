@@ -358,27 +358,27 @@ The following entries are provided, where I<N> is the index:
 
 the number of network monitors present
 
-=item pcapTable(1).pcapEntry(1).pcapIndex(0).I<N>
+=item pcapTable(2).pcapEntry(1).pcapIndex(0).I<N>
 
 the index of the network monitor
 
-=item pcapTable(1).pcapEntry(1).pcapDescr(1).I<N>
+=item pcapTable(2).pcapEntry(1).pcapDescr(1).I<N>
 
 a human description of the netowrk monitor (may be empty)
 
-=item pcapTable(1).pcapEntry(1).pcapDevice(2).I<N>
+=item pcapTable(2).pcapEntry(1).pcapDevice(2).I<N>
 
 the network device that traffic is being monitored on
 
-=item pcapTable(1).pcapEntry(1).pcapFilter(3).I<N>
+=item pcapTable(2).pcapEntry(1).pcapFilter(3).I<N>
 
 the pcap(3) filter used to select certain network packets for monitoring
 
-=item pcapTable(1).pcapEntry(1).pcapOctets(4).I<N>
+=item pcapTable(2).pcapEntry(1).pcapOctets(4).I<N>
 
 the number of octets seen by the monitor
 
-=item pcapTable(1).pcapEntry(1).pcapPackets(5).I<N>
+=item pcapTable(2).pcapEntry(1).pcapPackets(5).I<N>
 
 the number of packets seen by the monitor
 
