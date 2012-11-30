@@ -109,14 +109,15 @@ sub run {
     my ($class, $opts) = @_;
 
     # init some global variables
+    my $base_oid = $opts->{base_oid} || BASE_OID;
     %oid = (
-        pcapCount   => BASE_OID.".1",
-        pcapIndex   => BASE_OID.".2.1.0",
-        pcapDescr   => BASE_OID.".2.1.1",
-        pcapDevice  => BASE_OID.".2.1.2",
-        pcapFilter  => BASE_OID.".2.1.3",
-        pcapOctets  => BASE_OID.".2.1.4",
-        pcapPackets => BASE_OID.".2.1.5",
+        pcapCount   => "$base_oid.1",
+        pcapIndex   => "$base_oid.2.1.0",
+        pcapDescr   => "$base_oid.2.1.1",
+        pcapDevice  => "$base_oid.2.1.2",
+        pcapFilter  => "$base_oid.2.1.3",
+        pcapOctets  => "$base_oid.2.1.4",
+        pcapPackets => "$base_oid.2.1.5",
     );
     %type = (
         pcapIndex   => ASN_INTEGER,
@@ -164,7 +165,7 @@ sub run {
     POE::Component::NetSNMP::agent->spawn(
         Alias       => AGENT_ALIAS,
         AgentX      => 1,
-        AutoHandle  => $opts->{base_oid} || BASE_OID,
+        AutoHandle  => $base_oid,
         Errback     => "error_handler",
         Debug       => $opts->{debug} > 1 ? 1 : 0,
     );
