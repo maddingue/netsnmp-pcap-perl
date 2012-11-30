@@ -150,7 +150,7 @@ sub run {
         # .. and create the corresponding handler, in the main session,
         # to do the actual counting
         $handlers{"update_counters_for_$name"} = sub {
-            my ($kernel, $heap, $args) = @_[ KERNEL, HEAP, ARG0 ];
+            my ($heap, $args) = @_[ HEAP, ARG0 ];
             my $pkt_header = $args->[0][0];
             $heap->{monitors}[$id]{pcapPackets}++;
             $heap->{monitors}[$id]{pcapOctets}
