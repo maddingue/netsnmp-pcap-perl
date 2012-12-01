@@ -404,6 +404,29 @@ Here is an example which defines three network monitors:
     pcapDevice.3 = "eth0"
     pcapFilter.3 = "port http or port https"
 
+and the corresponding result from snmpwalk:
+
+    # snmpwalk -v2c -On -c public localhost .1.3.6.1.4.1.12325.1.1112
+    .1.3.6.1.4.1.12325.1.1112.1 = INTEGER: 3
+    .1.3.6.1.4.1.12325.1.1112.2.1.0.1 = INTEGER: 1
+    .1.3.6.1.4.1.12325.1.1112.2.1.0.2 = INTEGER: 2
+    .1.3.6.1.4.1.12325.1.1112.2.1.0.3 = INTEGER: 3
+    .1.3.6.1.4.1.12325.1.1112.2.1.1.1 = STRING: "ARP, ICMP and VRRP traffic"
+    .1.3.6.1.4.1.12325.1.1112.2.1.1.2 = STRING: "DNS traffic"
+    .1.3.6.1.4.1.12325.1.1112.2.1.1.3 = STRING: "HTTP traffic"
+    .1.3.6.1.4.1.12325.1.1112.2.1.2.1 = STRING: "eth0"
+    .1.3.6.1.4.1.12325.1.1112.2.1.2.2 = STRING: "eth0"
+    .1.3.6.1.4.1.12325.1.1112.2.1.2.3 = STRING: "eth0"
+    .1.3.6.1.4.1.12325.1.1112.2.1.3.1 = STRING: "arp or icmp or vrrp"
+    .1.3.6.1.4.1.12325.1.1112.2.1.3.2 = STRING: "port domain"
+    .1.3.6.1.4.1.12325.1.1112.2.1.3.3 = STRING: "port http or port https"
+    .1.3.6.1.4.1.12325.1.1112.2.1.4.1 = Counter32: 56
+    .1.3.6.1.4.1.12325.1.1112.2.1.4.2 = Counter32: 1347
+    .1.3.6.1.4.1.12325.1.1112.2.1.4.3 = Counter32: 29137
+    .1.3.6.1.4.1.12325.1.1112.2.1.5.1 = Counter32: 2
+    .1.3.6.1.4.1.12325.1.1112.2.1.5.2 = Counter32: 15
+    .1.3.6.1.4.1.12325.1.1112.2.1.5.3 = Counter32: 53
+    End of MIB
 
 
 =head1 SEE ALSO
