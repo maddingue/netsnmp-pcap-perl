@@ -429,6 +429,20 @@ and the corresponding result from snmpwalk:
     End of MIB
 
 
+=head1 CAVEATS
+
+Because this program is based on L<POE::Component::NetSNMP::agent>,
+it suffers from the same problem, which is that when the snmpd daemon
+it is connected to dies, the default POE loop will spin over the
+half-closed Unix socket, eating 100% of CPU until the daemon is restarted
+and the sub-agent has reconnected. A workaround is to use an alternative
+event loop: POE::Loop::AnyEvent, POE::Loop::EV and POE::XS::Loop::EPoll
+have been tested to not expose this problem.
+
+To select the event loop, set the C<POE_EVENT_LOOP> environment variable
+to its name: C<POE_EVENT_LOOP=POE::Loop::AnyEvent>
+
+
 =head1 SEE ALSO
 
 L<snmpd(1)>, L<bsnmpd-pcap(8)>, L<pcap(3)>, L<tcpdump(1)>
