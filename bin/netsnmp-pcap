@@ -7,7 +7,7 @@ use Sys::Syslog;
 
 
 $::PROGRAM = "netsnmp-pcap";
-$::VERSION = "0.90";
+$::VERSION = "0.95";
 
 
 #

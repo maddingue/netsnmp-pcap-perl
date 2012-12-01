@@ -1,5 +1,6 @@
 Release history for netsnmp-pcap
 
+0.95 / 2012.12.01 / SAPER
   - Bugfix: Correctly handle custom base OID.
   - Bugfix: Skip short packets.
   - Improved the documentation.
