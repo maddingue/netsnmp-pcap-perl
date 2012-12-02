@@ -268,8 +268,6 @@ sub error_handler {
 
 __END__
 
-=pod
-
 =head1 NAME
 
 netsnmp-pcap - SNMP extension which captures network traffic and reports
